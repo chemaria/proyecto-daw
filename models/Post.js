@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { model, Schema } = mongoose;
+const { models, model, Schema } = mongoose;
 
 const postSchema = new Schema({
   img: String,
@@ -12,4 +12,4 @@ const postSchema = new Schema({
   likes: Number,
 });
 
-const Post = model("Post", postSchema);
+module.exports = models.Post || model("Post", postSchema);
