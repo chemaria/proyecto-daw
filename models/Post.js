@@ -11,5 +11,14 @@ const postSchema = new Schema({
   date_publish: Date,
   likes: Number,
 });
+//modifica el objeto que devuelve mongo, en este caso cambiamos _id * id
+//y eliminamos _id y __v
+postSchema.set("toJSON", {
+  transform: (document, returnedObjet) => {
+    returnedObjet.id = returnedObjet._id;
+    delete returnedObjet._id;
+    delete returnedObjet.__v;
+  },
+});
 
 module.exports = models.Post || model("Post", postSchema);
