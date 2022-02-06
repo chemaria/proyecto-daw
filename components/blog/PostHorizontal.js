@@ -1,12 +1,22 @@
 import Image from "next/image";
 import imgPost from "../../public/img/jmcruz.jpg";
 
-export default function PostHorizontal() {
+export default function PostHorizontal(
+  date_publish,
+  likes,
+  shortdesc,
+  tittle,
+  visible,
+  avatar
+) {
+  const date = new Date(date_publish);
+  const formatDate = date.toDateString();
+
   return (
     <div className="grid grid-cols-2 mt-10 w-10/12 mx-auto p-2 hover:shadow rounded-lg transition cursor-pointer">
       <div>
         <h2 className="text-3xl">Primer Post</h2>
-        <p>Feb 06, 2022</p>
+        <p>formatDate</p>
       </div>
       <div>
         <p>

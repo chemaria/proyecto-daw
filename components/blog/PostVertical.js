@@ -1,12 +1,22 @@
 import Image from "next/image";
 import imgPost from "../../public/img/jmcruz.jpg";
 
-export default function PostVertical() {
+export default function PostVertical(
+  date_publish,
+  likes,
+  shortdesc,
+  tittle,
+  visible,
+  avatar
+) {
+  const date = new Date(date_publish);
+  const formatDate = date.toDateString();
+
   return (
     <div className="flex flex-col hover:shadow rounded-lg transition p-2 cursor-pointer">
       <div>
         <h2 className="text-3xl">Primer Post</h2>
-        <p className="">Feb 06, 2023</p>
+        <p className="">{formatDate}</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent
