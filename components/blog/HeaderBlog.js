@@ -11,6 +11,7 @@ export default function HeaderBlog() {
       </section>
       <section className="flex justify-center">
         <Image
+          className="rounded-xl"
           alt="blomail blog comida saludable"
           src={imgCabecera}
           width={1280}

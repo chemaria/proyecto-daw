@@ -3,10 +3,10 @@ import imgPost from "../../public/img/jmcruz.jpg";
 
 export default function PostVertical() {
   return (
-    <div className="flex flex-col mx-auto">
+    <div className="flex flex-col hover:shadow rounded-lg transition p-2 cursor-pointer">
       <div>
         <h2 className="text-3xl">Primer Post</h2>
-        <p className="">Feb 06, 2022</p>
+        <p className="">Feb 06, 2023</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent
@@ -15,7 +15,7 @@ export default function PostVertical() {
         </p>
       </div>
       <div className="flex items-center mt-5">
-        <div className="mr-5">
+        <div className="mr-5 ">
           <Image
             className="rounded-full"
             src={imgPost}

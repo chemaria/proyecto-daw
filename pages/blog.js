@@ -9,8 +9,15 @@ export default function blog({ posts }) {
     <main className="container mx-auto">
       <NavBar />
       <HeaderBlog />
-      <PostGridTotal>
-        <PostHorizontal />
+      <PostHorizontal />
+      <h2 className="w-10/12 mx-auto text-2xl font-bold mb-10 mt-10">
+        Mas Recetas
+      </h2>
+
+      <PostGridTotal posts={posts}>
+        <PostVertical />
+        <PostVertical />
+        <PostVertical />
         <PostVertical />
       </PostGridTotal>
     </main>
