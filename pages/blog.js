@@ -17,10 +17,6 @@ export default function blog({ posts }) {
         {posts.map((post) => {
           return <PostVertical key={post.id} {...post} />;
         })}
-
-        <PostVertical />
-        <PostVertical />
-        <PostVertical />
       </PostGridTotal>
     </main>
   );

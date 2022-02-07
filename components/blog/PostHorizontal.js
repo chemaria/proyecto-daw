@@ -1,14 +1,17 @@
 import Image from "next/image";
 import imgPost from "../../public/img/jmcruz.jpg";
 
-export default function PostHorizontal(
+export default function PostHorizontal({
+  img,
+  tittle,
+  subtittle,
+  description,
+  shortdesc,
+  visible,
   date_publish,
   likes,
-  shortdesc,
-  tittle,
-  visible,
-  avatar
-) {
+  avatar,
+}) {
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
 

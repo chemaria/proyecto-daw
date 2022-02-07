@@ -1,34 +1,33 @@
 import Image from "next/image";
 import imgPost from "../../public/img/jmcruz.jpg";
 
-export default function PostVertical(
+export default function PostVertical({
+  img,
+  tittle,
+  subtittle,
+  description,
+  shortdesc,
+  visible,
   date_publish,
   likes,
-  shortdesc,
-  tittle,
-  visible,
-  avatar
-) {
+  avatar,
+}) {
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
+  console.log(avatar);
 
   return (
     <div className="flex flex-col hover:shadow rounded-lg transition p-2 cursor-pointer">
       <div>
-        <h2 className="text-3xl">Primer Post</h2>
+        <h2 className="text-3xl">{tittle}</h2>
         <p className="">{formatDate}</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent
-          elementum facilisis leo vel fringilla est ullamcorper eget. At
-          imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
-        </p>
+        <p>{description}</p>
       </div>
       <div className="flex items-center mt-5">
         <div className="mr-5 ">
           <Image
             className="rounded-full"
-            src={imgPost}
+            src={avatar}
             width={80}
             height={80}
             alt="blomail post"
