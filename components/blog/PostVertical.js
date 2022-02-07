@@ -11,10 +11,11 @@ export default function PostVertical({
   date_publish,
   likes,
   avatar,
+  id,
 }) {
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
-  console.log(avatar);
+  const urlAvatar = avatar;
 
   return (
     <div className="flex flex-col hover:shadow rounded-lg transition p-2 cursor-pointer">
@@ -27,7 +28,7 @@ export default function PostVertical({
         <div className="mr-5 ">
           <Image
             className="rounded-full"
-            src={avatar}
+            src={imgPost}
             width={80}
             height={80}
             alt="blomail post"

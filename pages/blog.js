@@ -9,7 +9,7 @@ export default function blog({ posts }) {
     <main className="container mx-auto">
       <NavBar />
       <HeaderBlog />
-      <PostHorizontal />
+      <PostHorizontal props={posts} />
       <h2 className="w-10/12 mx-auto text-2xl font-bold mb-10 mt-10">
         Mas Recetas
       </h2>

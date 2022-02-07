@@ -11,9 +11,12 @@ export default function PostHorizontal({
   date_publish,
   likes,
   avatar,
+  id,
 }) {
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
+  const urlAvatar = avatar;
+  console.log(urlAvatar);
 
   return (
     <div className="grid grid-cols-2 mt-10 w-10/12 mx-auto p-2 hover:shadow rounded-lg transition cursor-pointer">
