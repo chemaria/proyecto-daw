@@ -1,5 +1,6 @@
 import Image from "next/image";
 import imgPost from "../../public/img/jmcruz.jpg";
+import { useState } from "react";
 
 export default function PostHorizontal({
   img,
@@ -8,12 +9,15 @@ export default function PostHorizontal({
   visible,
   date_publish,
   likes,
-  avatar,
+  src,
 }) {
+  const [like, setLike] = useState(likes);
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
-  const urlAvatar = avatar;
-  console.log(img);
+  if (!src) {
+    src = imgPost;
+  }
+
   return (
     <div className="grid grid-cols-2 mt-10 w-10/12 mx-auto p-2 hover:shadow rounded-lg transition cursor-pointer">
       <div>
@@ -26,7 +30,7 @@ export default function PostHorizontal({
           <div className="mr-5">
             <Image
               className="rounded-full"
-              src={imgPost}
+              src={src}
               width={80}
               height={80}
               alt="blomail post"
