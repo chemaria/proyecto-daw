@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const posts = await Post.find({});
+        const posts = await Post.find({}).sort({ date_publish: -1 });
         res.status(200).json(posts);
       } catch (error) {
         res.status(400);
