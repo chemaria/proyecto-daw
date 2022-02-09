@@ -1,8 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import imgPost from "../../public/img/jmcruz.jpg";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 
 export default function PostVertical({
   img,
@@ -16,7 +14,6 @@ export default function PostVertical({
   avatar,
   id,
 }) {
-  const [like, setLike] = useState(likes);
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
   console.log(avatar);
@@ -25,25 +22,30 @@ export default function PostVertical({
   }
 
   return (
-    <div className="hover:shadow rounded-lg transition p-2 cursor-pointer">
-      <div>
+    <Link href="">
+      <div className="hover:shadow rounded-lg transition p-2 cursor-pointer">
+        <Image
+          className="rounded-t-lg"
+          src={img}
+          width={576}
+          height={270}
+          alt={tittle}
+        />
         <h2 className="text-3xl">{tittle}</h2>
         <p className="">{formatDate}</p>
-        <p>{description}</p>
+        <p className="mt-5">{description}</p>
+        <div className="flex items-center justify-center align-bottom mt-5 ">
+          <Image
+            className="rounded-full"
+            src={avatar}
+            width={80}
+            height={80}
+            alt="blomail post"
+          />
+          <h4 className="ml-5">Por Jose Maria Cruz Iglesias</h4>
+        </div>
+        <div></div>
       </div>
-      <div className="flex items-center justify-center align-bottom mt-5 ">
-        <Image
-          className="rounded-full"
-          src={avatar}
-          width={80}
-          height={80}
-          alt="blomail post"
-        />
-        <h4 className="ml-5">Por Jose Maria Cruz Iglesias</h4>
-      </div>
-      <div>
-        <FontAwesomeIcon icon={faThumbsUp} size={"lg"} />
-      </div>
-    </div>
+    </Link>
   );
 }
