@@ -13,6 +13,7 @@ export default function PostHorizontal({
 }) {
   const date = new Date(date_publish);
   const formatDate = date.toDateString();
+
   if (!src) {
     src = imgPost;
   }
