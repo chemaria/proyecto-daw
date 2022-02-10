@@ -1,6 +1,6 @@
-import { dbConnect } from "../../lib/dbConnect";
-import Post from "../../models/Post";
-
+import { dbConnect } from "../../../lib/dbConnect";
+import Post from "../../../models/Post";
+// end-point Get nos devuelve todos los post. Post crea nuevo post
 export default async function handler(req, res) {
   const { method } = req;
   await dbConnect();

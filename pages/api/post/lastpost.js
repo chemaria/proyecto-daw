@@ -1,6 +1,6 @@
-import { dbConnect } from "../../lib/dbConnect";
-import Post from "../../models/Post";
-
+import { dbConnect } from "../../../lib/dbConnect";
+import Post from "../../../models/Post";
+//end-point que nos devuelve el ultimo post creado
 export default async function handler(req, res) {
   const { method } = req;
   await dbConnect();

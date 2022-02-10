@@ -32,8 +32,8 @@ export default function blog({ posts, lastpost }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.DOM_HOST + "/api/posts");
-  const res1 = await fetch(process.env.DOM_HOST + "/api/lastpost");
+  const res = await fetch(process.env.DOM_HOST + "/api/post/allposts");
+  const res1 = await fetch(process.env.DOM_HOST + "/api/post/lastpost");
   const posts = await res.json();
   const lastpost = await res1.json();
   return {

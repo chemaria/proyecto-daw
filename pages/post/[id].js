@@ -1,10 +1,10 @@
-export default function Post({ post }) {
-  return <div>{console.log(post)}</div>;
+export default function Post({ props }) {
+  return <div>{console.log(props)}</div>;
 }
 
 export async function getStaticPaths() {
   //llamada a la api para generar las rutas
-  const res = await fetch(`${process.env.DOM_HOST} '/api/posts' `);
+  const res = await fetch(process.env.DOM_HOST + "/api/posts");
   const posts = await res.json();
 
   //crea un objeto con las rutas
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`${process.env.DOM_HOST} '/post/' ${params.id}`);
+  const res = await fetch(process.env.DOM_HOST + "/api/posts" + params.id);
   const post = await res.json();
 
   return { props: post };
