@@ -1,7 +1,23 @@
-import { useRouter } from "next/router";
-export default function Post() {
-  const router = useRouter();
-  const { id } = router.query;
+export default function Post({ post }) {
+  return <div>{console.log(post)}</div>;
+}
 
-  return <p>Post: {id}</p>;
+export async function getStaticPaths() {
+  //llamada a la api para generar las rutas
+  const res = await fetch(`${process.env.DOM_HOST} '/api/posts' `);
+  const posts = await res.json();
+
+  //crea un objeto con las rutas
+  const paths = posts.map((post) => ({
+    params: { id: post.id },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`${process.env.DOM_HOST} '/post/' ${params.id}`);
+  const post = await res.json();
+
+  return { props: post };
 }
