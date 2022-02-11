@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./logo";
-export function NavBar() {
+export default function NavBar() {
   return (
     <nav className="bg-white shadow-xl sticky">
       <ul className="flex justify-around  align-middle container mx-auto">

@@ -2,7 +2,7 @@ import HeaderBlog from "../components/blog/HeaderBlog";
 import PostGridTotal from "../components/blog/PostGridTotal";
 import PostHorizontal from "../components/blog/PostHorizontal";
 import PostVertical from "../components/blog/PostVertical";
-import { NavBar } from "../components/NavBar";
+import NavBar from "../components/NavBar";
 
 export default function blog({ posts, lastpost }) {
   return (
