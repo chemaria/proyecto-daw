@@ -1,7 +1,7 @@
 import Image from "next/image";
 import NavBar from "../../components/NavBar";
 export default function Post(props) {
-  const imgHeader = props.img;
+  console.log(props);
   return (
     <body>
       <NavBar />
@@ -12,17 +12,24 @@ export default function Post(props) {
       >
         <h1 className="text-6xl font-bold text-white">{props.tittle}</h1>
         <div>
-          <p className="text-center mt-20 text-white text-lg">Leer más</p>
-          <Image
-            src="/img/down-arrow-w.svg"
-            width={100}
-            height={100}
-            alt="props.tittle"
-          />
+          <a href="#goToPost">
+            <p className="text-center mt-20 text-white text-lg">Leer más</p>
+            <Image
+              src="/img/down-arrow-w.svg"
+              width={100}
+              height={100}
+              alt="props.tittle"
+            />
+          </a>
         </div>
       </header>
-      <main></main>
+      <main id="goToPost">
+        <div>
+          <p>{props.description}</p>
+        </div>
+      </main>
       <footer></footer>
+
       <style jsx>{`
         .bg-image-post {
           background-image: url(${props.img});
