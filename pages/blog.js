@@ -20,6 +20,7 @@ export default function blog({ posts, lastpost }) {
           date_publish={lastpost.date_publish}
           likes={lastpost.likes}
           src={lastpost.avatar}
+          id={lastpost.id}
         />
         <h2 className="w-10/12 mx-auto text-2xl font-bold mb-10 mt-10">
           Mas Recetas

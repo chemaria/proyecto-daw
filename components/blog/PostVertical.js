@@ -22,7 +22,7 @@ export default function PostVertical({
   }
 
   return (
-    <Link href="">
+    <Link href={`../../post/${encodeURIComponent(id)}`} passHref>
       <div className="hover:shadow rounded-lg transition p-2 cursor-pointer">
         <div className="flex flex-col">
           <div className="relative">

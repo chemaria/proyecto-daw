@@ -1,6 +1,5 @@
 import { Navbar } from "../../components/NavBar";
 export default function Post(props) {
-  console.log();
   return (
     <body>
       <header>

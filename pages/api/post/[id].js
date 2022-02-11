@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   if (method === "GET") {
     const { id } = req.query;
     try {
-      const post = await Post.findOne({ id: id });
+      const post = await Post.findById(id);
       res.status(201).json(post);
     } catch (error) {
       res.status(400);
