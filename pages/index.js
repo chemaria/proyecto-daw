@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { ContentSlider } from "../components/ContentSlider";
-import { Header } from "../components/Header";
+import { NavBar } from "../components/NavBar";
 
 export default function Home() {
   return (
-    <div>
+    <body>
       <Head>
         <title>Blomail</title>
         <meta
@@ -13,12 +13,13 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <header>
+        <NavBar />
+      </header>
       <main className="container m-auto">
         <ContentSlider />
       </main>
-
       <footer></footer>
-    </div>
+    </body>
   );
 }
