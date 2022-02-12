@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "./logo";
+import { Logo } from "./icons/Logo";
 export default function NavBar() {
   return (
     <nav className="bg-white shadow-xl sticky">

@@ -15,7 +15,7 @@ export default function blog({ posts, lastpost }) {
         <PostHorizontal
           img={lastpost.img}
           tittle={lastpost.tittle}
-          description={lastpost.description}
+          shortdesc={lastpost.shortdesc}
           visible={lastpost.visible}
           date_publish={lastpost.date_publish}
           likes={lastpost.likes}

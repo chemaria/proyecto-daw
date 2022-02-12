@@ -5,12 +5,9 @@ import imgPost from "../../public/img/jmcruz.jpg";
 export default function PostVertical({
   img,
   tittle,
-  subtittle,
-  description,
   shortdesc,
   visible,
   date_publish,
-  likes,
   avatar,
   id,
 }) {
@@ -35,8 +32,7 @@ export default function PostVertical({
             />
             <h2 className="text-3xl">{tittle}</h2>
             <p className="">{formatDate}</p>
-
-            <p className="mt-5">{description}</p>
+            <p className="mt-5">{shortdesc}</p>
           </div>
           <div className=" flex justify-center items-center content-center mt-5">
             <Image

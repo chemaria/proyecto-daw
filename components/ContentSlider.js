@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export function ContentSlider({ image, h1, h2, h3 }) {
   return (
     <div>

@@ -3,12 +3,9 @@ import Link from "next/link";
 import imgPost from "../../public/img/jmcruz.jpg";
 
 export default function PostHorizontal({
-  img,
   tittle,
-  description,
-  visible,
+  shortdesc,
   date_publish,
-  likes,
   src,
   id,
 }) {
@@ -27,7 +24,7 @@ export default function PostHorizontal({
           <p>{formatDate}</p>
         </div>
         <div>
-          <p>{description}</p>
+          <p>{shortdesc}</p>
           <div className="flex items-center mt-2">
             <div className="mr-5">
               <Image
