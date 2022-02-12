@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { ContentSlider } from "../components/ContentSlider";
-import NavBar from "../components/NavBar";
+import { ContentSlider } from "../components/general/ContentSlider";
+import NavBar from "../components/general/NavBar";
 
 export default function Home() {
   return (

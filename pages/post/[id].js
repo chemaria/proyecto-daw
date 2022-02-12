@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NavBar from "../../components/NavBar";
+import NavBar from "../../components/general/NavBar";
 export default function Post(props) {
   console.log(props);
   return (

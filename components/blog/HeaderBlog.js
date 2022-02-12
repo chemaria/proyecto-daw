@@ -1,6 +1,5 @@
 import Image from "next/image";
 import imgCabecera from "../../public/img/blomail-blog-header.jpg";
-import { NavBar } from "../NavBar";
 
 export default function HeaderBlog() {
   return (
