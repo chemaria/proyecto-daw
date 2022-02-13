@@ -1,7 +1,6 @@
 import Image from "next/image";
 import NavBar from "../../components/general/NavBar";
 export default function Post(props) {
-  console.log(props);
   return (
     <body>
       <NavBar />
@@ -46,7 +45,7 @@ export async function getStaticPaths() {
 
   //crea un objeto con las rutas
   const paths = posts.map((post) => ({
-    params: { id: post.id },
+    params: { id: post.id.toString() },
   }));
 
   return { paths, fallback: false };
@@ -55,6 +54,5 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const res = await fetch(process.env.DOM_HOST + "/api/post/" + params.id);
   const post = await res.json();
-
-  return { props: post };
+  return { props: post[0] };
 }
