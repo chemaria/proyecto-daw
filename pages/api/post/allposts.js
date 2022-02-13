@@ -1,15 +1,14 @@
-import { dbConnect } from "../../../lib/dbConnect";
-import Post from "../../../models/Post";
-// end-point Get nos devuelve todos los post. Post crea nuevo post
+//MySQL
+import mySqlDbConnect from "../../../lib/mySqlDbConnect";
 export default async function handler(req, res) {
   const { method } = req;
-  await dbConnect();
 
   switch (method) {
     case "GET":
       try {
-        const posts = await Post.find({}).sort({ date_publish: -1 });
-        res.status(200).json(posts);
+        const db = await mySqlDbConnect({ query: "select * from posts" });
+        res.status(200).json(db);
+        res.end();
       } catch (error) {
         res.status(400);
       }
