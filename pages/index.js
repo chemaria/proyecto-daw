@@ -8,7 +8,7 @@ export default function Home() {
   const [showModal, setShow] = useState(false);
 
   return (
-    <body>
+    <>
       <Head>
         <title>Blomail</title>
         <meta
@@ -27,6 +27,6 @@ export default function Home() {
         <ContentSlider />
       </main>
       <footer></footer>
-    </body>
+    </>
   );
 }
