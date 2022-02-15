@@ -1,8 +1,12 @@
 import Head from "next/head";
 import { ContentSlider } from "../components/general/ContentSlider";
 import NavBar from "../components/general/NavBar";
-
+import { Logo } from "../components/icons/Logo";
+import Modal from "../components/login/Modal";
+import { useState } from "react";
 export default function Home() {
+  const [showModal, setShow] = useState(false);
+
   return (
     <body>
       <Head>
@@ -14,7 +18,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <NavBar />
+        <NavBar onClick={() => setShow(true)} />
+        <Modal showModal={showModal} onClick={() => setShow(false)}>
+          <Logo />
+        </Modal>
       </header>
       <main className="container m-auto">
         <ContentSlider />

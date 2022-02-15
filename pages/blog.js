@@ -13,14 +13,14 @@ export default function blog({ posts, lastpost }) {
       </header>
       <main>
         <PostHorizontal
-          img={lastpost.img}
-          tittle={lastpost.tittle}
-          shortdesc={lastpost.shortdesc}
-          visible={lastpost.visible}
-          date_publish={lastpost.date_publish}
-          likes={lastpost.likes}
-          src={lastpost.avatar}
-          id={lastpost.id}
+          img={lastpost[0].img}
+          tittle={lastpost[0].tittle}
+          shortdesc={lastpost[0].shortdesc}
+          visible={lastpost[0].visible}
+          date_publish={lastpost[0].date_publish}
+          likes={lastpost[0].likes}
+          src={lastpost[0].avatar}
+          id={lastpost[0].id}
         />
         <h2 className="w-10/12 mx-auto text-2xl font-bold mb-10 mt-10">
           Mas Recetas

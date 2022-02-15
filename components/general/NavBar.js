@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "../icons/Logo";
-export default function NavBar() {
+export default function NavBar({ onClick }) {
   return (
     <nav className="bg-white shadow-xl sticky">
       <ul className="flex justify-around  align-middle container mx-auto">
@@ -30,9 +30,9 @@ export default function NavBar() {
           </Link>
         </li>
         <li className="flex items-center">
-          <Link href="/faq">
-            <a className="hover:underline hover:font-bold">FAQ</a>
-          </Link>
+          <button onClick={onClick} className="hover:underline hover:font-bold">
+            Login
+          </button>
         </li>
       </ul>
     </nav>
