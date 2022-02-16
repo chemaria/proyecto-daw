@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   })
   console.log(userDb)
   // verificamos si user o password estan vacios y si user existe en bbdd
-  if (!(dataLogin.user && dataLogin.password) && userDb.length === 0) {
+  if (!(dataLogin.user && dataLogin.password) || userDb.length === 0) {
     return res.status(401).json({ error: 'error de autenticación' })
   }
   // const pass = await bcrypt.hash(dataLogin.password, 10)
