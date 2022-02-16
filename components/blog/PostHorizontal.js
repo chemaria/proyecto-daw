@@ -2,12 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import imgPost from '../../public/img/jmcruz.jpg'
 
-export default function PostHorizontal ({
+export default function PostHorizontal({
   tittle,
   shortdesc,
   datePublish,
   src,
-  id
+  id,
 }) {
   const date = new Date(datePublish)
   const formatDate = date.toDateString()
