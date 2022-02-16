@@ -1,4 +1,4 @@
-export function ContentSlider({ image, h1, h2, h3 }) {
+export function ContentSlider ({ image, h1, h2, h3 }) {
   return (
     <div>
       <div className="bg-[url('http://localhost:3000/img/blomail_principal4.png')] bg-cover min-h-min">
@@ -30,5 +30,5 @@ export function ContentSlider({ image, h1, h2, h3 }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

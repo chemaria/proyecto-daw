@@ -1,1 +1,1 @@
-export function BlogGrid() {}
+export function BlogGrid () {}

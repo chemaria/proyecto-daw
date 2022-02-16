@@ -1,18 +1,24 @@
-import Button from "../general/Button";
-import { useState } from "react";
-export default function FormLogin({ onClick }) {
+import Button from '../general/Button'
+import { useState } from 'react'
+export default function FormLogin ({ onClick }) {
   const [data, setData] = useState({
-    user: "",
-    password: "",
-  });
+    user: '',
+    password: ''
+  })
 
-  function handleChange(evt) {
-    setData({ ...data, [evt.target.name]: evt.target.value });
+  function handleChange (evt) {
+    setData({ ...data, [evt.target.name]: evt.target.value })
   }
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    console.log({ data });
+  async function handleSubmit (evt) {
+    evt.preventDefault()
+    const res = await fetch('http://localhost:3000/api/user/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: data.user,
+        password: data.password
+      })
+    })
   }
 
   return (
@@ -45,8 +51,6 @@ export default function FormLogin({ onClick }) {
           />
         </div>
       </div>
-
-      <div className=""></div>
     </form>
-  );
+  )
 }

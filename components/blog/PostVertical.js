@@ -1,21 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import imgPost from "../../public/img/jmcruz.jpg";
+import Image from 'next/image'
+import Link from 'next/link'
+import imgPost from '../../public/img/jmcruz.jpg'
 
-export default function PostVertical({
+export default function PostVertical ({
   img,
   tittle,
   shortdesc,
   visible,
-  date_publish,
+  datePublish,
   avatar,
-  id,
+  id
 }) {
-  const date = new Date(date_publish);
-  const formatDate = date.toDateString();
+  const date = new Date(datePublish)
+  const formatDate = date.toDateString()
 
   if (!avatar) {
-    avatar = imgPost;
+    avatar = imgPost
   }
 
   return (
@@ -47,5 +47,5 @@ export default function PostVertical({
         </div>
       </div>
     </Link>
-  );
+  )
 }

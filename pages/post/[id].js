@@ -1,12 +1,12 @@
-import Image from "next/image";
-import NavBar from "../../components/general/NavBar";
-export default function Post(props) {
+import Image from 'next/image'
+import NavBar from '../../components/general/NavBar'
+export default function Post (props) {
   return (
     <body>
       <NavBar />
       <header
         className={
-          "bg-image-post bg-cover bg-no-repeat min-h-screen flex items-center flex-col justify-center"
+          'bg-image-post bg-cover bg-no-repeat min-h-screen flex items-center flex-col justify-center'
         }
       >
         <h1 className="text-6xl font-bold text-white">{props.tittle}</h1>
@@ -35,24 +35,24 @@ export default function Post(props) {
         }
       `}</style>
     </body>
-  );
+  )
 }
 
-export async function getStaticPaths() {
-  //llamada a la api para generar las rutas
-  const res = await fetch(process.env.DOM_HOST + "/api/post/allposts");
-  const posts = await res.json();
+export async function getStaticPaths () {
+  // llamada a la api para generar las rutas
+  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/allposts')
+  const posts = await res.json()
 
-  //crea un objeto con las rutas
+  // crea un objeto con las rutas
   const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
-  }));
+    params: { id: post.id.toString() }
+  }))
 
-  return { paths, fallback: false };
+  return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
-  const res = await fetch(process.env.DOM_HOST + "/api/post/" + params.id);
-  const post = await res.json();
-  return { props: post[0] };
+export async function getStaticProps ({ params }) {
+  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/' + params.id)
+  const post = await res.json()
+  return { props: post[0] }
 }

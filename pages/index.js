@@ -1,11 +1,11 @@
-import Head from "next/head";
-import { ContentSlider } from "../components/general/ContentSlider";
-import NavBar from "../components/general/NavBar";
-import { Logo } from "../components/icons/Logo";
-import Modal from "../components/login/Modal";
-import { useState } from "react";
-export default function Home() {
-  const [showModal, setShow] = useState(false);
+import Head from 'next/head'
+import { ContentSlider } from '../components/general/ContentSlider'
+import NavBar from '../components/general/NavBar'
+import { Logo } from '../components/icons/Logo'
+import Modal from '../components/login/Modal'
+import { useState } from 'react'
+export default function Home () {
+  const [showModal, setShow] = useState(false)
 
   return (
     <>
@@ -28,5 +28,5 @@ export default function Home() {
       </main>
       <footer></footer>
     </>
-  );
+  )
 }

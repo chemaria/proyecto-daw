@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Logo } from "../icons/Logo";
-export default function NavBar({ onClick }) {
+import Link from 'next/link'
+import { Logo } from '../icons/Logo'
+export default function NavBar ({ onClick }) {
   return (
     <nav className="bg-white shadow-xl sticky">
       <ul className="flex justify-around  align-middle container mx-auto">
@@ -36,5 +36,5 @@ export default function NavBar({ onClick }) {
         </li>
       </ul>
     </nav>
-  );
+  )
 }

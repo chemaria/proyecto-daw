@@ -1,19 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
-import imgPost from "../../public/img/jmcruz.jpg";
+import Image from 'next/image'
+import Link from 'next/link'
+import imgPost from '../../public/img/jmcruz.jpg'
 
-export default function PostHorizontal({
+export default function PostHorizontal ({
   tittle,
   shortdesc,
-  date_publish,
+  datePublish,
   src,
-  id,
+  id
 }) {
-  const date = new Date(date_publish);
-  const formatDate = date.toDateString();
+  const date = new Date(datePublish)
+  const formatDate = date.toDateString()
 
   if (!src) {
-    src = imgPost;
+    src = imgPost
   }
 
   return (
@@ -42,5 +42,5 @@ export default function PostHorizontal({
         </div>
       </div>
     </Link>
-  );
+  )
 }

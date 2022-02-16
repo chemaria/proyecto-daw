@@ -1,28 +1,28 @@
-//MySQL
-import mySqlDbConnect from "../../../lib/mySqlDbConnect";
-export default async function handler(req, res) {
-  const { method } = req;
+// MySQL
+import mySqlDbConnect from '../../../lib/mySqlDbConnect'
+export default async function handler (req, res) {
+  const { method } = req
 
   switch (method) {
-    case "GET":
+    case 'GET':
       try {
-        const db = await mySqlDbConnect({ query: "select * from posts" });
-        res.status(200).json(db);
-        res.end();
+        const db = await mySqlDbConnect({ query: 'select * from posts' })
+        res.status(200).json(db)
+        res.end()
       } catch (error) {
-        res.status(400);
+        res.status(400)
       }
-      break;
-    case "POST":
+      break
+    case 'POST':
       try {
-        const post = await Post.create(req.body);
-        res.status(201).json({ data: post });
+        // const post = await Post.create(req.body)
+        // res.status(201).json({ data: post })
       } catch (error) {
-        res.status(400);
+        res.status(400)
       }
-      break;
+      break
     default:
-      res.status(400);
-      break;
+      res.status(400)
+      break
   }
 }

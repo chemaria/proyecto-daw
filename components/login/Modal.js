@@ -1,14 +1,14 @@
-import Button from "../general/Button";
-import FormLogin from "./FormLogin";
+import Button from '../general/Button'
+import FormLogin from './FormLogin'
 
-export default function Modal({ showModal, children, onClick }) {
-  //estado que le pasamos desde index para abrir o cerrar el modal
+export default function Modal ({ showModal, children, onClick }) {
+  // estado que le pasamos desde index para abrir o cerrar el modal
   if (!showModal) {
-    return null;
+    return null
   }
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log();
+  function handleSubmit (event) {
+    event.preventDefault()
+    console.log()
   }
   return (
     <div className="fixed left-0 right-0 top-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center ">
@@ -22,5 +22,5 @@ export default function Modal({ showModal, children, onClick }) {
         <FormLogin onClick={onClick} />
       </div>
     </div>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import Image from "next/image";
-import imgCabecera from "../../public/img/blomail-blog-header.jpg";
+import Image from 'next/image'
+import imgCabecera from '../../public/img/blomail-blog-header.jpg'
 
-export default function HeaderBlog() {
+export default function HeaderBlog () {
   return (
     <div className="w-10/12 mx-auto">
       <section className="flex justify-between items-center mt-10  mb-10 ">
@@ -18,5 +18,5 @@ export default function HeaderBlog() {
         />
       </section>
     </div>
-  );
+  )
 }

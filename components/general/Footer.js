@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer () {
   return (
     <div>
       <ul>
@@ -8,5 +8,5 @@ export default function Footer() {
         <li>lorem</li>
       </ul>
     </div>
-  );
+  )
 }
