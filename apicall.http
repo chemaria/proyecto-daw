@@ -1,0 +1,16 @@
+POST http://localhost:3000/api/user/login  
+Content-Type: application/json
+
+{
+  "user": "chemin1989",
+  "password": "Pantalla"
+}
+
+###
+
+GET http://localhost:3000/api/post/allposts
+
+
+###
+
+GET http://localhost:3000/api/post/lastpost

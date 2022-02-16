@@ -6,9 +6,9 @@ export default async function handler (req, res) {
   if (method === 'GET') {
     try {
       const db = await mySqlDbConnect({
-        query: 'SELECT * FROM posts ORDER BY date_publish LIMIT 1'
+        query: 'SELECT * FROM posts ORDER BY datePublish LIMIT 1'
       })
-      res.status(200).json(db)
+      res.status(200).json(db[0])
       res.end()
     } catch (error) {
       res.status(400)
