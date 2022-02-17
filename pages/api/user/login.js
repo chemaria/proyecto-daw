@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
   // verificamos si user o password estan vacios y si user existe en bbdd
   if (!(dataLogin.user && dataLogin.password) || userDb.length === 0) {
-    return res.status(401).json({ error: 'error de autenticación' })
+    return res.status(401).send({ error: 'error de autenticación' })
   }
   // const pass = await bcrypt.hash(dataLogin.password, 10)
   const match = await bcrypt.compare(dataLogin.password, userDb[0].password)
@@ -25,8 +25,9 @@ export default async function handler(req, res) {
       username: dataLogin.user,
     }
     const token = Jwt.sign(generateToken, process.env.JWT)
+    console.log(token)
     res.status(201).send({ username: dataLogin.user, token: token })
   } else {
-    res.status(401).json({ error: 'error de autenticación 2' })
+    res.status(401).send({ error: 'error de autenticación 2' })
   }
 }

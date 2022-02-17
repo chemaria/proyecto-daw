@@ -1,24 +1,22 @@
-import { useState } from 'react'
 import { Logo } from '../components/icons/Logo'
 import FormLogin from '../components/login/FormLogin'
-import Modal from '../components/login/Modal'
 
 export default function Login() {
-  const [showModal, setShow] = useState(false)
   return (
-    <body className="min-h-screen">
-      <header>
-        <h1>Login</h1>
-      </header>
+    <section className="flex items-center justify-center min-h-screen">
       <main>
-        <Modal showModal={showModal} onClick={() => setShow(false)}>
-          <Logo />
-        </Modal>
-        <div>
-          <FormLogin />
+        <div className="grid grid-cols-3 align-middle">
+          <div></div>
+          <div className="px-16 py-16 shadow-lg">
+            <div className="flex justify-center align-top">
+              <Logo />
+            </div>
+            <FormLogin />
+          </div>
+          <div></div>
         </div>
       </main>
       <footer></footer>
-    </body>
+    </section>
   )
 }
