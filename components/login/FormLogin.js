@@ -26,21 +26,21 @@ export default function FormLogin({ onClick }) {
       }),
     })
     console.log({ response: response.status, type: typeof response.status })
-    if (response.status === 401) setLogin('Error en login')
+    if (response.status === 401) setLogin('Usuario o contraseña invalidos')
   }
 
   return (
-    <form className="" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <input
-          className="mx-auto my-2 border-2 border-gray-400 rounded focus:text-red-400"
+          className="mx-auto my-2 border-2 border-gray-400 rounded"
           type="text"
           placeholder="Usuario"
           name="user"
           onChange={handleChange}
         ></input>
         <input
-          className="mx-auto my-2 border-2 border-gray-400 rounded focus:text-red-400"
+          className="focus:ring-green-500 mx-auto my-2 border-2 border-gray-400 rounded"
           type="password"
           placeholder="Contraseña"
           name="password"
@@ -49,12 +49,12 @@ export default function FormLogin({ onClick }) {
         <span className="text-center text-red-500">{login}</span>
         <div className="flex flex-col mt-10 mb-6">
           <Button
-            className="px-10 py-1 font-bold text-white duration-500 bg-green-500 border-2 rounded-md hover:bg-green-800"
+            className="mx-auto px-10 py-1 font-bold text-white duration-500 bg-green-500 border-2 rounded-md hover:bg-green-800"
             text="Login"
             type="submit"
           />
           <Link href="/">
-            <a className="px-10 py-1 mt-2 font-bold text-center text-white duration-500 bg-red-500 border-2 rounded-md hover:bg-red-800">
+            <a className="mx-auto px-10 py-1 mt-2 font-bold text-center text-white duration-500 bg-red-500 border-2 rounded-md hover:bg-red-800">
               Cancelar
             </a>
           </Link>

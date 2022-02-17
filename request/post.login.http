@@ -1,16 +1,7 @@
 POST http://localhost:3000/api/user/login  
-Content-Type: application/json
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJjaGVtaW4xOTg5IiwiaWF0IjoxNjQ1MDQ2NTUwfQ.f0GTEVuNe9H1Xziuo-00AOgtInM45i4QkaGE0eV6kw4
+content-type: application/json
+
 {
   "user": "chemin1989",
   "password": "Pantalla"
 }
-
-###
-
-GET http://localhost:3000/api/post/allposts
-
-
-###
-
-GET http://localhost:3000/api/post/lastpost

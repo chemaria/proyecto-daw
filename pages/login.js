@@ -5,15 +5,11 @@ export default function Login() {
   return (
     <section className="flex items-center justify-center min-h-screen">
       <main>
-        <div className="grid grid-cols-3 align-middle">
-          <div></div>
-          <div className="px-16 py-16 shadow-lg">
-            <div className="flex justify-center align-top">
-              <Logo />
-            </div>
-            <FormLogin />
+        <div className="w-80 h-80 shadow-2xl">
+          <div className="flex justify-center align-top">
+            <Logo />
           </div>
-          <div></div>
+          <FormLogin />
         </div>
       </main>
       <footer></footer>

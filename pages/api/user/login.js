@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import mySqlDbConnect from '../../../lib/mySqlDbConnect'
 import Jwt from 'jsonwebtoken'
+import cookie from 'cookie'
 
 // end-point login user
 export default async function handler(req, res) {
@@ -24,10 +25,23 @@ export default async function handler(req, res) {
       id: userDb[0].id,
       username: dataLogin.user,
     }
-    const token = Jwt.sign(generateToken, process.env.JWT)
-    console.log(token)
+
+    const token = await Jwt.sign(generateToken, process.env.JWT_SECRET_KEY, {
+      expiresIn: process.env.JWT_TIME_TO_LIVE,
+    })
+
+    const cookiesOptions = {
+      expires: new Date(
+        Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+      ),
+      httpOnly: true,
+      sameSite: 'strict',
+      path: '/',
+    }
+    res.setHeader('Set-Cookie', cookie.serialize('jwt', token, cookiesOptions))
+
     res.status(201).send({ username: dataLogin.user, token: token })
   } else {
-    res.status(401).send({ error: 'error de autenticación 2' })
+    res.status(401).send({ error: 'error de autenticación' })
   }
 }
