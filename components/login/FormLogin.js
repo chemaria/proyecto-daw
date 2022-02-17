@@ -1,7 +1,6 @@
 import Button from '../general/Button'
 import { useState } from 'react'
 import Link from 'next/link'
-import Login from '../../pages/login'
 
 export default function FormLogin({ onClick }) {
   const [data, setData] = useState({
