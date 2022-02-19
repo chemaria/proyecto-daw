@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import { ContentSlider } from '../components/general/ContentSlider'
 import NavBar from '../components/general/NavBar'
-export default function Home() {
+
+export default function Home(props) {
+  console.log(props)
   return (
     <>
       <Head>

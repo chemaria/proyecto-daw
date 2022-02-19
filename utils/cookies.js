@@ -1,4 +1,4 @@
-import { serialize } from 'cookie'
+// import { serialize } from 'cookie'
 // setea cookies
 
 // terminar cuando este todo ok con jwt
