@@ -1,6 +1,10 @@
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { Logo } from '../icons/Logo'
-export default function NavBar({ onClick }) {
+export default function NavBar() {
+  // useEffect(()=>{
+  //   check si user esta logued
+  // },[])
   return (
     <nav className="sticky bg-white shadow-xl">
       <ul className="container flex justify-around mx-auto align-middle">

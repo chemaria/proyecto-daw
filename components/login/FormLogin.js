@@ -25,8 +25,11 @@ export default function FormLogin({ onClick }) {
         password: data.password,
       }),
     })
-    console.log({ response: response.status, type: typeof response.status })
-    if (response.status === 401) setLogin('Usuario o contraseña invalidos')
+
+    response.status === 401
+      ? setLogin('Usuario o contraseña inválidos')
+      : setLogin('')
+    // redireccionar a admin
   }
 
   return (
@@ -40,7 +43,7 @@ export default function FormLogin({ onClick }) {
           onChange={handleChange}
         ></input>
         <input
-          className="focus:ring-green-500 mx-auto my-2 border-2 border-gray-400 rounded"
+          className="mx-auto my-2 border-2 border-gray-400 rounded focus:ring-green-500"
           type="password"
           placeholder="Contraseña"
           name="password"
@@ -49,12 +52,12 @@ export default function FormLogin({ onClick }) {
         <span className="text-center text-red-500">{login}</span>
         <div className="flex flex-col mt-10 mb-6">
           <Button
-            className="mx-auto px-10 py-1 font-bold text-white duration-500 bg-green-500 border-2 rounded-md hover:bg-green-800"
+            className="px-10 py-1 mx-auto font-bold text-white duration-500 bg-green-500 border-2 rounded-md hover:bg-green-800"
             text="Login"
             type="submit"
           />
           <Link href="/">
-            <a className="mx-auto px-10 py-1 mt-2 font-bold text-center text-white duration-500 bg-red-500 border-2 rounded-md hover:bg-red-800">
+            <a className="px-10 py-1 mx-auto mt-2 font-bold text-center text-white duration-500 bg-red-500 border-2 rounded-md hover:bg-red-800">
               Cancelar
             </a>
           </Link>
