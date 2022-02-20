@@ -3,12 +3,15 @@ import { Logo } from '../icons/Logo'
 import { useSession } from '../../context/SessionProvider'
 export default function NavBar() {
   const { session } = useSession()
+
   const isLogin = () => {
     if (session) {
       return (
         <li className="flex items-center">
           <Link href="/admin">
-            <a className="hover:underline hover:font-bold">Admin</a>
+            <a className="hover:underline hover:font-bold">
+              Hihi {session.ussername}
+            </a>
           </Link>
         </li>
       )
