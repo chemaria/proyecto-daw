@@ -8,7 +8,6 @@ export default function Home() {
   const { setSession } = useSession()
   useEffect(async () => {
     const response = await fetch('/api/user/auth')
-
     if (response.ok) {
       const isLogin = await response.json()
       setSession(isLogin)

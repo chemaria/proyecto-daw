@@ -13,8 +13,9 @@ export default async function middleware(req, res) {
     process.env.JWT_SECRET_KEY
   )
 
-  if (!tokenVerify)
+  if (!tokenVerify) {
     return new NextResponse('Auth Required', {
       status: 401,
     })
+  }
 }

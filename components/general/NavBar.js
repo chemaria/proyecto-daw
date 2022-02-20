@@ -4,13 +4,13 @@ import { useSession } from '../../context/SessionProvider'
 export default function NavBar() {
   const { session } = useSession()
 
-  const isLogin = () => {
-    if (session) {
+  const isLogin = (session) => {
+    if (session.username) {
       return (
         <li className="flex items-center">
           <Link href="/admin">
             <a className="hover:underline hover:font-bold">
-              Hihi {session.ussername}
+              Hihi {session.username}
             </a>
           </Link>
         </li>
@@ -53,7 +53,7 @@ export default function NavBar() {
             </a>
           </Link>
         </li>
-        {isLogin()}
+        {isLogin(session)}
       </ul>
     </nav>
   )
