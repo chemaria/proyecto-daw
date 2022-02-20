@@ -1,8 +1,11 @@
 import Button from '../general/Button'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useSession } from '../../context/SessionProvider'
 
-export default function FormLogin({ onClick }) {
+export default function FormLogin() {
+  const { token, setToken } = useSession()
+
   const [data, setData] = useState({
     user: '',
     password: '',
@@ -26,9 +29,13 @@ export default function FormLogin({ onClick }) {
       }),
     })
 
-    response.status === 401
-      ? setLogin('Usuario o contraseña inválidos')
-      : setLogin('')
+    if (response.status === 401) {
+      setLogin('Usuario o contraseña inválidos')
+    } else {
+      setLogin('')
+      setToken(true)
+    }
+    console.log(token)
     // redireccionar a admin
   }
 

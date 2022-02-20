@@ -2,10 +2,10 @@ import { createContext, useContext, useState } from 'react'
 export const SessionContext = createContext(null)
 
 export const SessionProvider = ({ children }) => {
-  const [token, setToken] = useState('adadadsad')
+  const [session, setSession] = useState()
 
   return (
-    <SessionContext.Provider value={{ token, setToken }}>
+    <SessionContext.Provider value={{ session, setSession }}>
       {children}
     </SessionContext.Provider>
   )

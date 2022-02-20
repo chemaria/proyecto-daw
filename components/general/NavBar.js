@@ -1,10 +1,27 @@
-import { useEffect } from 'react'
 import Link from 'next/link'
 import { Logo } from '../icons/Logo'
+import { useSession } from '../../context/SessionProvider'
 export default function NavBar() {
-  // useEffect(()=>{
-  //   check si user esta logued
-  // },[])
+  const { session } = useSession()
+  const isLogin = () => {
+    if (session) {
+      return (
+        <li className="flex items-center">
+          <Link href="/admin">
+            <a className="hover:underline hover:font-bold">Admin</a>
+          </Link>
+        </li>
+      )
+    }
+    return (
+      <li className="flex items-center">
+        <Link href="/login">
+          <a className="hover:underline hover:font-bold">Login</a>
+        </Link>
+      </li>
+    )
+  }
+
   return (
     <nav className="sticky bg-white shadow-xl">
       <ul className="container flex justify-around mx-auto align-middle">
@@ -33,11 +50,7 @@ export default function NavBar() {
             </a>
           </Link>
         </li>
-        <li className="flex items-center">
-          <Link href="/login">
-            <a className="hover:underline hover:font-bold">Login</a>
-          </Link>
-        </li>
+        {isLogin()}
       </ul>
     </nav>
   )
