@@ -25,6 +25,9 @@ export default function FormLogin() {
         password: data.password,
       }),
     })
+    const token = await response.json()
+
+    console.log(token)
 
     if (response.status === 401) {
       setLogin('Usuario o contraseña inválidos')
