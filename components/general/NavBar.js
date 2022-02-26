@@ -1,17 +1,17 @@
 import Link from 'next/link'
 import { Logo } from '../icons/Logo'
 import { useSession } from '../../context/SessionProvider'
+import Cookies from 'js-cookie'
 export default function NavBar() {
-  const { session } = useSession()
+  const { session, setSession } = useSession()
+  setSession(Cookies.get('jwt'))
 
   const isLogin = (session) => {
-    if (session.username) {
+    if (session) {
       return (
         <li className="flex items-center">
           <Link href="/admin">
-            <a className="hover:underline hover:font-bold">
-              Hihi {session.username}
-            </a>
+            <a className="hover:underline hover:font-bold">Hihi</a>
           </Link>
         </li>
       )

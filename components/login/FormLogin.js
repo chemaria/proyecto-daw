@@ -34,9 +34,8 @@ export default function FormLogin() {
     if (response.status === 401) {
       setLogin('Usuario o contraseña inválidos')
     } else {
-      const token = Cookies.get('jwt', { domain: 'http://localhost' })
+      const token = Cookies.get('jwt')
       setSession(token)
-      console.log(session)
     }
 
     // redireccionar a admin
