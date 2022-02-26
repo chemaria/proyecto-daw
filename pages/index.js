@@ -1,22 +1,8 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
 import { ContentSlider } from '../components/general/ContentSlider'
 import NavBar from '../components/general/NavBar'
-import { useSession } from '../context/SessionProvider'
 
 export default function Home() {
-  const { setSession } = useSession()
-  // useEffect(() => {
-  //   const fetch = async () => {
-  //     const response = await fetch('/api/user/auth')
-  //     if (response.ok) {
-  //       const isLogin = await response.json()
-  //       setSession(isLogin)
-  //     }
-  //   }
-  //   fetch()
-  // }, [])
-
   return (
     <>
       <Head>

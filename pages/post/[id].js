@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import NavBar from '../../components/general/NavBar'
-export default function Post (props) {
+export default function Post(props) {
   return (
     <body>
       <NavBar />
@@ -12,7 +12,7 @@ export default function Post (props) {
         <h1 className="text-6xl font-bold text-white">{props.tittle}</h1>
         <div>
           <a href="#goToPost">
-            <p className="text-center mt-20 text-white text-lg">Leer más</p>
+            <p className="mt-20 text-lg text-center text-white">Leer más</p>
             <Image
               src="/img/down-arrow-w.svg"
               width={100}
@@ -38,21 +38,21 @@ export default function Post (props) {
   )
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   // llamada a la api para generar las rutas
-  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/allposts')
+  const res = await fetch('/api/post/allposts')
   const posts = await res.json()
 
   // crea un objeto con las rutas
   const paths = posts.map((post) => ({
-    params: { id: post.id.toString() }
+    params: { id: post.id.toString() },
   }))
 
   return { paths, fallback: false }
 }
 
-export async function getStaticProps ({ params }) {
-  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/' + params.id)
+export async function getStaticProps({ params }) {
+  const res = await fetch('/api/post/' + params.id)
   const post = await res.json()
   return { props: post[0] }
 }

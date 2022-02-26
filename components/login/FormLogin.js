@@ -1,8 +1,13 @@
 import Button from '../general/Button'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useSession } from '../../context/SessionProvider'
+import Cookies from 'js-cookie'
 
 export default function FormLogin() {
+  // set global session
+  const { session, setSession } = useSession()
+
   const [data, setData] = useState({
     user: '',
     password: '',
@@ -15,7 +20,7 @@ export default function FormLogin() {
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    const response = await fetch('http://localhost:3000/api/user/login', {
+    const response = await fetch('/api/user/login', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,14 +30,13 @@ export default function FormLogin() {
         password: data.password,
       }),
     })
-    const token = await response.json()
-
-    console.log(token)
 
     if (response.status === 401) {
       setLogin('Usuario o contraseña inválidos')
     } else {
-      setLogin('')
+      const token = Cookies.get('jwt', { domain: 'http://localhost' })
+      setSession(token)
+      console.log(session)
     }
 
     // redireccionar a admin

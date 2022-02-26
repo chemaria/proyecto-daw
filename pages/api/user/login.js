@@ -29,14 +29,14 @@ export default async function handler(req, res) {
     const token = await Jwt.sign(generateToken, process.env.JWT_SECRET_KEY, {
       expiresIn: process.env.JWT_TIME_TO_LIVE,
     })
-
+    // set jwt cookie
     const cookiesOptions = {
       expires: new Date(
         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
       ),
-      httpOnly: true,
-      sameSite: 'strict',
+      httpOnly: false,
       path: '/',
+      domain: 'localhost',
     }
     res.setHeader('Set-Cookie', cookie.serialize('jwt', token, cookiesOptions))
 
