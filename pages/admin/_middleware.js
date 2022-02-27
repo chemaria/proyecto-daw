@@ -7,13 +7,10 @@ export default async function middleware(req, res) {
       status: 401,
     })
   }
-
-  const tokenVerify = await jwt.verify(
-    req.cookies.jwt,
-    process.env.JWT_SECRET_KEY
-  )
-
-  if (!tokenVerify) {
+  try {
+    await jwt.verify(req.cookies.jwt, process.env.JWT_SECRET_KEY)
+  } catch (error) {
+    // borrar cookies jwt
     return new NextResponse('Auth Required', {
       status: 401,
     })
