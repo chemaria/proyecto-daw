@@ -6,10 +6,9 @@ import Router from 'next/router'
 import NavBar from '../components/general/NavBar'
 export default function Login() {
   const { session, setSession } = useSession()
-  console.log(session)
   useEffect(() => {
     if (session) Router.push('http://localhost:3000/admin/')
-  }, [])
+  }, [session])
 
   return (
     <>

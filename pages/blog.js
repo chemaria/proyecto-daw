@@ -3,12 +3,10 @@ import PostGridTotal from '../components/blog/PostGridTotal'
 import PostHorizontal from '../components/blog/PostHorizontal'
 import PostVertical from '../components/blog/PostVertical'
 import NavBar from '../components/general/NavBar'
-import { useSession } from '../context/SessionProvider'
+
 export default function blog({ posts, lastpost }) {
-  const { session, setSession } = useSession()
-  console.log(session)
   return (
-    <body className="container mx-auto">
+    <div className="container mx-auto">
       <header>
         <NavBar />
         <HeaderBlog />
@@ -33,13 +31,13 @@ export default function blog({ posts, lastpost }) {
           })}
         </PostGridTotal>
       </main>
-    </body>
+    </div>
   )
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/post/allposts')
-  const res1 = await fetch('http://localhost:3000/api/post/lastpost')
+  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/allposts')
+  const res1 = await fetch(process.env.BLOMAIL_URL + '/api/post/lastpost')
   const posts = await res.json()
   const lastpost = await res1.json()
   return {

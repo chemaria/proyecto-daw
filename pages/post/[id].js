@@ -2,7 +2,7 @@ import Image from 'next/image'
 import NavBar from '../../components/general/NavBar'
 export default function Post(props) {
   return (
-    <body>
+    <section>
       <NavBar />
       <header
         className={
@@ -34,13 +34,13 @@ export default function Post(props) {
           background-image: url(${props.img});
         }
       `}</style>
-    </body>
+    </section>
   )
 }
 
 export async function getStaticPaths() {
   // llamada a la api para generar las rutas
-  const res = await fetch('/api/post/allposts')
+  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/allposts')
   const posts = await res.json()
 
   // crea un objeto con las rutas
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch('/api/post/' + params.id)
+  const res = await fetch(process.env.BLOMAIL_URL + '/api/post/' + params.id)
   const post = await res.json()
   return { props: post[0] }
 }

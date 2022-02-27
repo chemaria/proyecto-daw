@@ -2,14 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import imgPost from '../../public/img/jmcruz.jpg'
 
-export default function PostVertical ({
+export default function PostVertical({
   img,
   tittle,
   shortdesc,
   visible,
   datePublish,
   avatar,
-  id
+  id,
 }) {
   const date = new Date(datePublish)
   const formatDate = date.toDateString()
@@ -19,7 +19,7 @@ export default function PostVertical ({
   }
 
   return (
-    <Link href={`../../post/${encodeURIComponent(id)}`} passHref>
+    <Link href={`/post/${encodeURIComponent(id)}`} passHref>
       <div className="hover:shadow rounded-lg transition p-2 cursor-pointer">
         <div className="flex flex-col">
           <div className="relative">
