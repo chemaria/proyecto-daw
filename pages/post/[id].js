@@ -40,7 +40,7 @@ export default function Post(props) {
 
 export async function getStaticPaths() {
   // llamada a la api para generar las rutas
-  const res = await fetch(process.env.BLOMAIL_URL + '/post/')
+  const res = await fetch(process.env.APIURL + '/post/')
   const posts = await res.json()
 
   // crea un objeto con las rutas
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(process.env.BLOMAIL_URL + '/post/' + params.id)
+  const res = await fetch(process.env.APIURL + '/post/' + params.id)
   const post = await res.json()
   return { props: post[0] }
 }

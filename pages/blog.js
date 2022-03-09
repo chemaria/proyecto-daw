@@ -26,7 +26,7 @@ export default function blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.BLOMAIL_URL + '/post/')
+  const res = await fetch(process.env.APIURL + '/post/')
   const posts = await res.json()
   return {
     props: {

@@ -7,7 +7,7 @@ import NavBar from '../components/general/NavBar'
 export default function Login() {
   const { session } = useSession()
   useEffect(() => {
-    if (session) Router.push('http://localhost:3000/admin/')
+    if (session) Router.push('/admin/')
   }, [session])
 
   return (

@@ -6,8 +6,7 @@ import Cookies from 'js-cookie'
 
 export default function FormLogin() {
   // set global session
-  const { session, setSession } = useSession()
-
+  const { setSession } = useSession()
   const [data, setData] = useState({
     user: '',
     password: '',
@@ -20,7 +19,7 @@ export default function FormLogin() {
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    const response = await fetch('http://localhost:3002/user/login', {
+    const response = await fetch(process.env.APIURL + '/user/login', {
       headers: {
         'Content-Type': 'application/json',
       },
