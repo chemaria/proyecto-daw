@@ -20,7 +20,7 @@ export default function FormLogin() {
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    const response = await fetch('http://localhost:3000/api/user/login', {
+    const response = await fetch('http://localhost:3002/user/login', {
       headers: {
         'Content-Type': 'application/json',
       },
