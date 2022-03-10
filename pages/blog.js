@@ -27,6 +27,7 @@ export default function blog({ posts }) {
 
 export async function getStaticProps() {
   const res = await fetch(process.env.APIURL + '/post/')
+  console.log(res)
   const posts = await res.json()
   return {
     props: {

@@ -12,52 +12,54 @@ export default function NavBar() {
   const isLogin = (session) => {
     if (session) {
       return (
-        <li className="flex items-center">
-          <a href="/admin" className="hover:underline hover:font-bold">
+        <li className="">
+          <a href="/admin" className="hover:underline">
             Hihi
           </a>
         </li>
       )
     }
     return (
-      <li className="flex items-center">
+      <li className="">
         <Link href="/login">
-          <a className="hover:underline hover:font-bold">Login</a>
+          <a className="hover:underline">Login</a>
         </Link>
       </li>
     )
   }
 
   return (
-    <nav className="sticky bg-white shadow-xl">
-      <ul className="container flex justify-around mx-auto align-middle">
-        <li>
+    <nav className="bg-white shadow-xl">
+      <div className="columns-2">
+        <div className="w-1/3 pl-10">
           <Logo />
-        </li>
-        <li className="flex items-center text">
-          <Link href="/">
-            <a className="hover:underline hover:font-bold">Inicio</a>
-          </Link>
-        </li>
-        <li className="flex items-center">
-          <Link href="/blog">
-            <a className="hover:underline hover:font-bold">Blog</a>
-          </Link>
-        </li>
-        <li className="flex items-center">
-          <Link href="/lanzamientos">
-            <a className="hover:underline hover:font-bold">Lanzamientos</a>
-          </Link>
-        </li>
-        <li className="flex items-center">
-          <Link href="/recursos">
-            <a className="hover:underline hover:font-bold">
-              Recursos Gratuitos
-            </a>
-          </Link>
-        </li>
-        {isLogin(session)}
-      </ul>
+        </div>
+        <div className="my-auto">
+          <ul className="flex items-center justify-between w-2/3 h-24">
+            <li className="">
+              <Link href="/">
+                <a className="hover:underline">Inicio</a>
+              </Link>
+            </li>
+            <li className="">
+              <Link href="/blog">
+                <a className="hover:underline">Blog</a>
+              </Link>
+            </li>
+            <li className="">
+              <Link href="/lanzamientos">
+                <a className=" hover:underline">Lanzamientos</a>
+              </Link>
+            </li>
+            <li className="">
+              <Link href="/recursos">
+                <a className="hover:underline">Recursos Gratuitos</a>
+              </Link>
+            </li>
+            {isLogin(session)}
+          </ul>
+        </div>
+      </div>
     </nav>
   )
 }

@@ -9,7 +9,7 @@ export default function Home() {
         <title>Blomail</title>
         <meta
           name="description"
-          content="BlomailApp by Jose Maria Cruz Iglesias"
+          content="BlomileApp by Jose Maria Cruz Iglesias"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
