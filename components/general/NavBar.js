@@ -3,8 +3,10 @@ import { Logo } from '../icons/Logo'
 import { useSession } from '../../context/SessionProvider'
 import Cookies from 'js-cookie'
 import { useEffect } from 'react'
-export default function NavBar() {
+
+export default function NavBar({ scroll }) {
   const { session, setSession } = useSession()
+
   useEffect(() => {
     setSession(Cookies.get('jwt'))
   }, [])
@@ -29,7 +31,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="bg-white shadow-xl">
+    <nav className="bg-white shadow-xl fixed top-0 z-50 container mx-auto rounded-md">
       <div className="columns-2">
         <div className="w-1/3 pl-10">
           <Logo />

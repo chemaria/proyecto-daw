@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { ContentSlider } from '../components/general/ContentSlider'
+import { ContentMiddle, ContentTop } from '../components/general/ContentMainWeb'
 import NavBar from '../components/general/NavBar'
 
 export default function Home() {
@@ -13,11 +13,12 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+      <header className="flex justify-center">
         <NavBar />
       </header>
-      <main className="container m-auto">
-        <ContentSlider />
+      <main className="">
+        <ContentTop />
+        <ContentMiddle />
       </main>
       <footer></footer>
     </>
