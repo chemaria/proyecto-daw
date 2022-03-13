@@ -1,27 +1,14 @@
-import styles from '../../styles/Admin.module.css'
-
+import NavBar from '../../components/admin/NavBar'
 export default function Home() {
   return (
     <section>
-      <head>
-        <nav>
-          <ul>
-            <li>
-              <a href="/admin/magage-post">Manage Post</a>
-            </li>
-            <li>
-              <a href="/admin/magage-user">Manage User</a>
-            </li>
-            <li>
-              <a href="/admin/competence">Competence</a>
-            </li>
-            <li>
-              <a href="/admin/options">Theme Options</a>
-            </li>
-          </ul>
-        </nav>
-      </head>
-      <body></body>
+      <div className="h-screen grid grid-cols-12">
+        <div className="col-span-3">
+          <NavBar />
+        </div>
+        <div className="col-span-9"></div>
+      </div>
+
       <footer></footer>
     </section>
   )
