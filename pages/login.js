@@ -11,8 +11,10 @@ export default function Login() {
   }, [session])
 
   return (
-    <>
-      <NavBar />
+    <div>
+      <div className="flex justify-center">
+        <NavBar />
+      </div>
       <section className="flex items-center justify-center min-h-screen">
         <main>
           <div className="shadow-2xl w-80 h-80">
@@ -24,6 +26,6 @@ export default function Login() {
         </main>
         <footer></footer>
       </section>
-    </>
+    </div>
   )
 }
