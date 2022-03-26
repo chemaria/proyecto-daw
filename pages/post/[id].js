@@ -3,7 +3,9 @@ import NavBar from '../../components/general/NavBar'
 export default function Post(props) {
   return (
     <section>
-      <NavBar />
+      <div className="flex justify-center">
+        <NavBar />
+      </div>
       <header
         className={
           'bg-image-post bg-cover bg-no-repeat min-h-screen flex items-center flex-col justify-center'
@@ -23,13 +25,16 @@ export default function Post(props) {
         </div>
       </header>
       <main id="goToPost">
-        <div>
-          <p>{props.description}</p>
+        <div className="w-5/6 mx-auto">
+          <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
         </div>
       </main>
       <footer></footer>
 
       <style jsx>{`
+        p {
+          font-size: 20px;
+        }
         .bg-image-post {
           background-image: url(${props.img});
         }
