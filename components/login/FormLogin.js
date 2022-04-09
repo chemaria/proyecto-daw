@@ -19,21 +19,31 @@ export default function FormLogin() {
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    const response = await fetch(process.env.APIURL + '/user/login', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        user: data.user,
-        password: data.password,
-      }),
-    })
+
+    if (!data.user || !data.password) {
+      setLogin('Usuario o contraseña inválidos')
+      return
+    }
+
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_APIURL + '/user/login',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          user: data.user,
+          password: data.password,
+        }),
+      }
+    )
 
     if (response.status === 401) {
       setLogin('Usuario o contraseña inválidos')
     } else {
       const token = Cookies.get('jwt')
+      console.log({ token })
       setSession(token)
     }
 

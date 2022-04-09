@@ -7,6 +7,7 @@ import NavBar from '../components/general/NavBar'
 export default function Login() {
   const { session } = useSession()
   useEffect(() => {
+    console.log('que hay aqui' + session)
     if (session) Router.push('/admin/')
   }, [session])
 

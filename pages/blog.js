@@ -4,7 +4,6 @@ import PostVertical from '../components/blog/PostVertical'
 import NavBar from '../components/general/NavBar'
 
 export default function blog({ posts }) {
-  console.log(posts)
   return (
     <div>
       <div className="flex justify-center">
@@ -28,7 +27,7 @@ export default function blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.APIURL + '/post/')
+  const res = await fetch(process.env.NEXT_PUBLIC_APIURL + '/post/')
   console.log(res)
   const posts = await res.json()
   return {
