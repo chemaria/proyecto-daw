@@ -25,19 +25,16 @@ export default function FormLogin() {
       return
     }
 
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_APIURL + '/user/login',
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify({
-          user: data.user,
-          password: data.password,
-        }),
-      }
-    )
+    const response = await fetch(process.env.URLAPI + '/user/login', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        user: data.user,
+        password: data.password,
+      }),
+    })
 
     if (response.status === 401) {
       setLogin('Usuario o contraseña inválidos')

@@ -22,9 +22,7 @@ export default function CreatePost() {
     formData.append('tittle', tittle)
     formData.append('imageBlomali', img)
 
-    const url = 'http://localhost:3000/api/createpost'
-
-    await fetch(url, {
+    await fetch(process.env.URLAPP + '/api/createpost', {
       method: 'POST',
       body: formData,
     })

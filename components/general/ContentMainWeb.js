@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export const ContentTop = () => {
   return (
-    <section className="bg-black/50 bg-[url('http://localhost:3000/img/newDesing/headerWeb.jpg')] bg-cover h-screen flex flex-col items-center justify-center ">
+    <section className="bg-black/50 bg-image-index bg-cover h-screen flex flex-col items-center justify-center ">
       <div className="">
         <h1 className="pb-5 text-6xl font-bold text-center text-white ">
           ¿Quieres disponer de todo lo necesario <br /> para vender por
@@ -21,6 +21,12 @@ export const ContentTop = () => {
           </a>
         </div>
       </div>
+      <style jsx>{`
+        .bg-image-index {
+          background-image: url(${process.env.URLAPP +
+          '/img/newDesing/headerWeb.jpg'});
+        }
+      `}</style>
     </section>
   )
 }
@@ -34,14 +40,14 @@ export const ContentMiddle = () => {
             <Image
               className=""
               alt="blomail blog comida saludable"
-              src={'http://localhost:3000/img/newDesing/banner1.jpg'}
+              src={process.env.URLAPP + '/img/newDesing/banner1.jpg'}
               width={250}
               height={165}
             />
             <Image
               className=""
               alt="blomail blog comida saludable"
-              src={'http://localhost:3000/img/newDesing/banner1.jpg'}
+              src={process.env.URLAPP + '/img/newDesing/banner1.jpg'}
               width={250}
               height={165}
             />

@@ -18,8 +18,7 @@ const upload = multer({
 })
 
 const sendPostData = async ({ description, tittle, visible, img }) => {
-  const url = 'http://localhost:3002/post'
-  const response = await fetch(url, {
+  const response = await fetch(process.env.URLAPI + '/post', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +42,7 @@ export default function handler(req, res) {
         description: req.body.description,
         tittle: req.body.tittle,
         visible: req.body.visible,
-        img: process.env.APPURL + parseImgUrl + '/' + req.file.originalname,
+        img: process.env.URLAPP + parseImgUrl + '/' + req.file.originalname,
       })
       if (response.status === 200) res.status(201).send('OK')
     }

@@ -1,7 +1,1 @@
-POST http://localhost:3000/api/user/login  
-content-type: application/json
-
-{
-  "user": "chemin1989",
-  "password": "Pantalla"
-}
+GET https://api.blomile.com/post/1  
