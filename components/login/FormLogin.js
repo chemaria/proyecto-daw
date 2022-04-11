@@ -31,6 +31,7 @@ export default function FormLogin() {
         'Access-Control-Allow-Origin': '*',
       },
       method: 'POST',
+      credentials: 'include',
       body: JSON.stringify({
         user: data.user,
         password: data.password,
@@ -41,7 +42,6 @@ export default function FormLogin() {
       setLogin('Usuario o contraseña inválidos')
     } else {
       const token = Cookies.get('jwt')
-      console.log({ token })
       setSession(token)
     }
 
