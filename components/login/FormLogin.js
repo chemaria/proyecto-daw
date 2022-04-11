@@ -28,6 +28,7 @@ export default function FormLogin() {
     const response = await fetch(process.env.URLAPI + '/user/login', {
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       method: 'POST',
       body: JSON.stringify({
