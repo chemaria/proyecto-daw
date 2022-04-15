@@ -22,7 +22,7 @@ export default function ManagePost() {
             <a
               role="button"
               className="ml-10 px-20 py-2 font-bold text-white transition bg-[#e85e00] rounded hover:bg-[#b44900] mb-20"
-              onClick={() => setCreatePost(true)}
+              onClick={() => setCreatePost(!createPost)}
             >
               {!createPost ? 'Create Post' : 'ListPost'}
             </a>
