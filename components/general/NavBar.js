@@ -16,7 +16,7 @@ export default function NavBar({ scroll }) {
       return (
         <li className="">
           <a href="/admin" className="hover:underline">
-            Hihi
+            Admin
           </a>
         </li>
       )

@@ -2,12 +2,13 @@ import { Logo } from '../components/icons/Logo'
 import FormLogin from '../components/login/FormLogin'
 import { useEffect } from 'react'
 import { useSession } from '../context/SessionProvider'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import NavBar from '../components/general/NavBar'
 export default function Login() {
+  const router = useRouter()
   const { session } = useSession()
   useEffect(() => {
-    if (session) Router.push('/admin/')
+    if (session) router.push('/admin/')
   }, [session])
 
   return (

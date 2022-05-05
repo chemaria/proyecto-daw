@@ -1,12 +1,10 @@
 import Button from '../general/Button'
 import { useState } from 'react'
 import Link from 'next/link'
-import { useSession } from '../../context/SessionProvider'
-import Cookies from 'js-cookie'
 
 export default function FormLogin() {
   // set global session
-  const { setSession } = useSession()
+
   const [data, setData] = useState({
     user: '',
     password: '',
@@ -40,12 +38,7 @@ export default function FormLogin() {
 
     if (response.status === 401) {
       setLogin('Usuario o contraseña inválidos')
-    } else {
-      const token = Cookies.get('jwt')
-      setSession(token)
     }
-
-    // redireccionar a admin
   }
 
   return (

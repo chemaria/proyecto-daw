@@ -1,10 +1,14 @@
+import Link from 'next/link'
 import { Logo } from '../icons/Logo'
+
 export default function NavBar() {
   return (
     <div className="pl-5 h-screen bg-blue-100 ">
-      <a href="/">
-        <Logo />
-      </a>
+      <Link href="/">
+        <a>
+          <Logo />
+        </a>
+      </Link>
 
       <nav className="relative mt-20 mx-5, font-bold">
         <ul className="flex flex-col h-screen">

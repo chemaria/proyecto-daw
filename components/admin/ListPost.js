@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 
 export default function ListPost() {
   const [posts, setPost] = useState(null)
@@ -16,6 +17,21 @@ export default function ListPost() {
       })
       .catch((err) => console.log(err))
   }, [])
+
+  const handleClick = async (evt) => {
+    const id = evt.target.id
+    const token = `Bearer ${Cookies.get('jwt')}`
+    const del = await fetch(`${process.env.URLAPI}/post/?id=${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => console.log(error))
+  }
   if (isLoading) {
     return (
       <div className="flex justify-center">
@@ -40,16 +56,29 @@ export default function ListPost() {
                 index % 2 === 0
                   ? 'bg-slate-300 hover:bg-slate-400 hover:shadow-md hover:cursor-pointer'
                   : 'hover:bg-slate-100 hover:shadow-2xl hover:cursor-pointer'
+              const setOptions =
+                onHover === post.id
+                  ? 'visible ml-2 hover:underline hover:text-blue-600'
+                  : 'invisible'
               return (
                 <tr
                   key={post.id}
                   className={bgColor}
-                  onMouseEnter={() => setOnHover(true)}
-                  onMouseLeave={() => setOnHover(false)}
+                  onMouseEnter={() => setOnHover(post.id)}
+                  onMouseLeave={() => setOnHover(null)}
                 >
-                  <td className="p-4 ">
+                  <td className="py-8 pl-2">
                     {post.id}
-                    {onHover ? <div>asdadasd</div> : null}
+                    <div className="flex  ">
+                      <a className={setOptions + ' '}>Edit</a>
+                      <a
+                        className={setOptions}
+                        onClick={handleClick}
+                        id={post.id}
+                      >
+                        Delete
+                      </a>
+                    </div>
                   </td>
 
                   <td>{post.tittle}</td>
