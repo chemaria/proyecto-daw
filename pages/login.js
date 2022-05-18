@@ -5,11 +5,16 @@ import { useSession } from '../context/SessionProvider'
 import { useRouter } from 'next/router'
 import NavBar from '../components/general/NavBar'
 export default function Login() {
-  const router = useRouter()
-  const { session } = useSession()
-  useEffect(() => {
-    if (session) router.push('/admin/')
-  }, [session])
+  // const router = useRouter()
+  // const { session } = useSession()
+  // useEffect(() => {
+  //   console.log('pasa por aqui!!')
+  //   console.log(session)
+  //   if (session) {
+  //     console.log(session)
+  //     router.push('/admin/')
+  //   }
+  // }, [session])
 
   return (
     <div>

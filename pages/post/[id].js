@@ -43,21 +43,10 @@ export default function Post(props) {
   )
 }
 
-export async function getStaticPaths() {
-  // llamada a la api para generar las rutas
-  const res = await fetch(process.env.URLAPI + '/post/')
-  const posts = await res.json()
-
-  // crea un objeto con las rutas
-  const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
-  }))
-
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps({ params }) {
-  const res = await fetch(process.env.URLAPI + '/post/' + params.id)
-  const post = await res.json()
+export async function getServerSideProps({ req, res, query }) {
+  console.log()
+  const response = await fetch(process.env.URLAPI + '/post/' + query.id)
+  const post = await response.json()
+  console.log(post)
   return { props: post[0] }
 }

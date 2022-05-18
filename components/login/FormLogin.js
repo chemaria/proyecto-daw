@@ -1,10 +1,12 @@
 import Button from '../general/Button'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function FormLogin() {
+  const router = useRouter()
   // set global session
-
+  const [count, setCount] = useState(0)
   const [data, setData] = useState({
     user: '',
     password: '',
@@ -36,8 +38,10 @@ export default function FormLogin() {
       }),
     })
 
-    if (response.status === 401) {
+    if (response.status !== 200) {
       setLogin('Usuario o contraseña inválidos')
+    } else {
+      router.push('/admin/')
     }
   }
 
